@@ -43,7 +43,7 @@
            v-if="isLoadMoreButtonShown">
 
         <button class="button" @click="loadMore">
-          <span class="button__span">Show next</span>
+          <span class="button__span">{{ moreButtonText }}</span>
         </button>
       </div>
 
@@ -64,6 +64,11 @@ export default {
     isPending: false,
     isLoadMoreButtonShown: false,
   }),
+  computed: {
+    moreButtonText() {
+      return this.isPending ? 'Loading' : 'Show next';
+    },
+  },
   methods: {
     editBeerItem(beerItem) {
       eventBus.$emit('showModal', beerItem);
