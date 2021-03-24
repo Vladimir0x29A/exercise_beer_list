@@ -1,9 +1,53 @@
-.beer-list {
-  &__item {
-    &:not(:first-child) {
-      margin-top: 20px;
+$beer-list-anim-duration: .5s;
+
+.anim-beer-list {
+  &-leave,
+  &-enter {
+    &-active {
+      transition: none $beer-list-anim-duration;
+      transition-property: transform, opacity;
     }
   }
+
+  &-leave-active {
+    position: absolute;
+    width: 100%;
+  }
+
+  &-enter {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  &-leave-to {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  &-move {
+    transition: none $beer-list-anim-duration;
+    transition-property: transform, opacity;
+  }
+}
+
+
+
+.beer-list {
+  $offset: 20px;
+
+  position: relative;
+  margin-top: -$offset;
+
+  &__item {
+    margin-top: $offset;
+  }
+}
+
+
+
+.beer-list-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -75,7 +119,6 @@ $beer-item-manage-item-count: 2;
   margin-top: -$beer-item-manage-offset;
 
   &__item {
-    //height: calc(#{100% / $beer-item-manage-item-count} - #{$beer-item-manage-offset});
     margin-top: $beer-item-manage-offset;
   }
 }
