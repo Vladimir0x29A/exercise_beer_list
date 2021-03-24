@@ -1,0 +1,22 @@
+@mixin width_col($item_count, $margin) {
+  @if $margin == 0 {
+    width: floor(10000% / $item_count) / 100;
+  } @else {
+    width: calc(#{floor(10000% / $item_count) / 100} - #{$margin});
+  }
+}
+
+@function cca($color, $alpha) {
+  @return change_color($color, $alpha: $alpha);
+}
+
+%pseudo-hover {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity .2s;
+}

@@ -1,0 +1,18 @@
+@import "reset";
+@import "mixins";
+
+body {
+  min-height: 100vh;
+  font-family: "Century Gothic", sans-serif;
+  color: white;
+  background: #15161b radial-gradient(circle, #4e2428, cca(#4e2428, .1) 45%, transparent) center/170%;
+}
+
+.app {
+  padding: 100px 0;
+}
+
+
+@import "default";
+
+@import "beer-list";
