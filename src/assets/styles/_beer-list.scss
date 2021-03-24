@@ -84,12 +84,10 @@ $beer-item-border-width: 2px;
 
   &__image {
     flex-shrink: 0;
+    align-self: center;
     height: 100px;
     width: 60px;
     object-fit: contain;
-  }
-
-  &__manage {
   }
 
   &__info {
@@ -103,7 +101,13 @@ $beer-item-border-width: 2px;
   &__description {
     margin-top: 8px;
     font-size: 14px;
+    color: #fa9bb4;
+  }
+
+  &__tips {
+    font-size: 12px;
     color: #ca7d91;
+    margin-top: 8px;
   }
 }
 

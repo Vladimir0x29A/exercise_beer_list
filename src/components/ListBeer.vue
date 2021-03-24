@@ -18,11 +18,12 @@
                :alt="`Beer ${beerItem.id}`">
 
           <div class="beer-item__info beer-item__stream-el">
-            <div class="beer-item__name">{{ beerItem.name }}</div>
+            <h3 class="beer-item__name">{{ beerItem.name }}</h3>
             <div class="beer-item__description">{{ beerItem.description }}</div>
+            <div class="beer-item__tips">{{ beerItem.brewers_tips }}</div>
           </div>
 
-          <div class="beer-item__manage beer-item-manage beer-item__stream-el">
+          <div class="beer-item-manage beer-item__stream-el">
             <button class="beer-item-manage__item button"
                     @click="editBeerItem(beerItem)">
 
