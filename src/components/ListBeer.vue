@@ -58,7 +58,7 @@ export default {
   name: "ListBeer",
   data: () => ({
     apiUri: 'https://api.punkapi.com/v2/beers',
-    pageNumber: 11,
+    pageNumber: 0,
     pageLimit: 25,
     beerList: [],
     isPending: false,
