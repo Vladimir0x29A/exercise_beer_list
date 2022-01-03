@@ -4,6 +4,10 @@
       tag="div"
       name="anim-beer-list"
   >
+    <Total
+        class="beer-list__item"
+        key="total"
+    />
     <FoodDailyItem
         class="beer-list__item"
         key="add"
@@ -24,10 +28,14 @@
 <script>
 import {mapActions, mapState} from "vuex";
 import FoodDailyItem from "@/components/FoodDailyItem";
+import Total from "@/components/Total";
 
 export default {
   name: "ListDaily",
-  components: {FoodDailyItem},
+  components: {
+    Total,
+    FoodDailyItem,
+  },
   data: () => ({
     isPending: false,
   }),

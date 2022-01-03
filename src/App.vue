@@ -23,6 +23,7 @@
 import List from "@/components/List";
 import Modal from "@/components/Modal";
 import ListDaily from "@/components/ListDaily";
+import {mapActions} from "vuex";
 
 export default {
   name: 'App',
@@ -31,7 +32,15 @@ export default {
     Modal,
     // ListBeer,
     List,
-  }
+  },
+  methods: {
+    ...mapActions('settings', [
+      'fetchSettings',
+    ]),
+  },
+  mounted() {
+    this.fetchSettings();
+  },
 }
 </script>
 
