@@ -10,19 +10,19 @@ export default {
   getters: {},
   mutations: {
     updateItems(state, payload) {
-      state.foodItems = payload;
-      // state.foodItems = state.foodItems.concat(payload);
+      state.foodDailyItems = payload;
+      // state.foodDailyItems = state.foodItems.concat(payload);
     },
     addItem(state, payload) {
-      state.foodItems.unshift(payload);
+      state.foodDailyItems.unshift(payload);
     },
     updateItem(state, payload) {
-      const index = state.foodItems.findIndex(item => item.id === payload.id);
-      Object.assign(state.foodItems[index], payload);
+      const index = state.foodDailyItems.findIndex(item => item.id === payload.id);
+      Object.assign(state.foodDailyItems[index], payload);
     },
     removeItem(state, id) {
-      const index = state.foodItems.findIndex(item => item.id === id);
-      state.foodItems.splice(index, 1);
+      const index = state.foodDailyItems.findIndex(item => item.id === id);
+      state.foodDailyItems.splice(index, 1);
     },
   },
   actions: {

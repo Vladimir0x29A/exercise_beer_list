@@ -4,7 +4,24 @@
       <!--<div class="beer-item__id beer-item__stream-el">{{ item.name }}</div>-->
 
       <div class="beer-item__info beer-item__stream-el">
-        <Multiselect
+        <h3
+            v-if="!showEdit"
+            class="beer-item__name"
+        >
+          {{ itemName }}
+        </h3>
+
+        <select
+            v-else-if="editable"
+            v-model="editable.food_item_id"
+        >
+          <option
+              v-for="foodItem in foodItems"
+              :value="foodItem.id"
+          >{{ foodItem.name }}</option>
+        </select>
+
+        <!--<Multiselect
             :options="foodItems"
             v-model="selected"
             placeholder="Select food item"
@@ -25,7 +42,7 @@
               {{ values.length }} options selected
             </span>
           </template>
-        </Multiselect>
+        </Multiselect>-->
 
         <!--<h3
             v-if="!showEdit"
@@ -129,12 +146,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    selected: {
+    /*selected: {
       type: Object,
       default() {
         return null;
       }
-    },
+    },*/
     item: {
       type: Object,
       default() {
@@ -159,19 +176,24 @@ export default {
     showEdit() {
       return this.isEdit || this.isAdder;
     },
+    itemName() {
+      if (!this.foodItems || !this.foodItems.length) return '';
+      const item = this.foodItems.find(item => item.id === this.item.food_item_id);
+      return item.name;
+    },
   },
   methods: {
     addItem() {
-      const {name, calories, proteins, fats, carbohydrates} = this.editable;
-      const possibleToAdd = name && (calories || proteins || fats || carbohydrates);
+      const {food_item_id, grams} = this.editable;
+      const possibleToAdd = food_item_id && grams;
 
       if (possibleToAdd) {
         this.$emit('save', this.editable);
 
-        this.editable = {
+        /*this.editable = {
           food_item_id: 0,
           grams: 0,
-        };
+        };*/
       }
     },
     saveItem() {

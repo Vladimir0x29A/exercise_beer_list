@@ -8,15 +8,16 @@
         class="beer-list__item"
         key="add"
         :isAdder="true"
+        @save="storeItem"
     />
-    <!--<FoodItem
+    <FoodDailyItem
         class="beer-list__item"
-        v-for="item in list"
+        v-for="item in foodDailyItems"
         :key="item.id"
         :item="item"
-        @save="updateItem"
+        @save="update"
         @remove="removeItem"
-    />-->
+    />
   </transition-group>
 </template>
 
