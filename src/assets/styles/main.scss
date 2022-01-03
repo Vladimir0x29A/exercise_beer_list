@@ -9,7 +9,24 @@ body {
 }
 
 .app {
-  padding: 100px 0;
+  padding: 20px 0;
+}
+
+.main-columns {
+  $margin: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: (-$margin * 2) (-$margin) 0;
+
+  &__column {
+    @include width_col(2, $margin * 2);
+    margin: ($margin * 2) $margin 0;
+
+    /*@media (max-width: 639px) {
+      @include width_col(1, $margin);
+    }*/
+  }
 }
 
 
